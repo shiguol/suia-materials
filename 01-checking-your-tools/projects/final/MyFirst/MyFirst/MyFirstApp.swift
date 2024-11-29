@@ -32,11 +32,14 @@
 
 import SwiftUI
 
+// salex @main 是入口，App 的子类是启动的 app
 @main
 struct MyFirstApp: App {
-  var body: some Scene {
-    WindowGroup {
-      ContentView()
+    // salex Scene 是场景
+    var body: some Scene {
+        // salex WG 相当于 keyWindow
+        WindowGroup {
+            ContentView()
+        }
     }
-  }
 }

@@ -33,19 +33,20 @@
 import SwiftUI
 
 struct ContentView: View {
-  var body: some View {
-    TabView {
-      WelcomeView()
-      ForEach(Exercise.exercises.indices, id: \.self) { index in
-        ExerciseView(index: index)
-      }
+    var body: some View {
+        TabView {
+            WelcomeView()
+            // salex 在 SwiftUI 中 ForEach 居然是个结构体，第 1 个参数是个可以迭代的，第 2 个参数是迭代的值
+            ForEach(Exercise.exercises.indices, id: \.self) { index in
+                ExerciseView(index: index)
+            }
+        }
+        .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
     }
-    .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
-  }
 }
 
 struct ContentView_Previews: PreviewProvider {
-  static var previews: some View {
-    ContentView()
-  }
+    static var previews: some View {
+        ContentView()
+    }
 }

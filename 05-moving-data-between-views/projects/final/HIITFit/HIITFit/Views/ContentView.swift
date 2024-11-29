@@ -33,23 +33,24 @@
 import SwiftUI
 
 struct ContentView: View {
-  @State private var selectedTab = 9
-
-  var body: some View {
-    TabView(selection: $selectedTab) {
-      WelcomeView(selectedTab: $selectedTab)  // 1
-        .tag(9)  // 2
-      ForEach(Exercise.exercises.indices, id: \.self) { index in
-        ExerciseView(selectedTab: $selectedTab, index: index)
-          .tag(index)  // 3
-      }
+    // salex State 是主页面上要显示的属性，接受其它页面的修改
+    @State private var selectedTab = 9
+    
+    var body: some View {
+        TabView(selection: $selectedTab) {
+            WelcomeView(selectedTab: $selectedTab)  // 1
+                .tag(9)  // 2
+            ForEach(Exercise.exercises.indices, id: \.self) { index in
+                ExerciseView(selectedTab: $selectedTab, index: index)
+                    .tag(index)  // 3
+            }
+        }
+        .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
     }
-    .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
-  }
 }
 
 struct ContentView_Previews: PreviewProvider {
-  static var previews: some View {
-    ContentView()
-  }
+    static var previews: some View {
+        ContentView()
+    }
 }

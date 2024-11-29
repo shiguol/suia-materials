@@ -34,10 +34,11 @@ import SwiftUI
 
 @main
 struct TILApp: App {
-  var body: some Scene {
-    WindowGroup {
-      ContentView()
-        .environment(\.textCase, .uppercase)
+    var body: some Scene {
+        WindowGroup {
+            ContentView()
+            // salex 可以直接修改全局环境属性
+                .environment(\.textCase, .uppercase)
+        }
     }
-  }
 }

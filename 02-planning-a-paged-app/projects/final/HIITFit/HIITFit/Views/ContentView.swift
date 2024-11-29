@@ -33,19 +33,22 @@
 import SwiftUI
 
 struct ContentView: View {
-  var body: some View {
-    TabView {
-      WelcomeView()
-      ForEach(0 ..< 4) { index in
-        ExerciseView(index: index)
-      }
+    var body: some View {
+        // salex TabView 也是布局的一种，相当于 viewpager
+        TabView {
+            WelcomeView()
+            ForEach(0 ..< 4) { index in
+                // salex 因为 EV 中有未赋值的属性 index，所有构造函数需要把未赋值的属性初始化了
+                ExerciseView(index: index)
+            }
+        }
+        // salex .xxxStyle() 是 TabView 的一个 modifier
+        .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
     }
-    .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
-  }
 }
 
 struct ContentView_Previews: PreviewProvider {
-  static var previews: some View {
-    ContentView()
-  }
+    static var previews: some View {
+        ContentView()
+    }
 }

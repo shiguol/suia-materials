@@ -1,15 +1,15 @@
-/// Copyright (c) 2022 Kodeco LLC
-/// 
+/// Copyright (c) 2024 Kodeco LLC
+///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy
 /// of this software and associated documentation files (the "Software"), to deal
 /// in the Software without restriction, including without limitation the rights
 /// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 /// copies of the Software, and to permit persons to whom the Software is
 /// furnished to do so, subject to the following conditions:
-/// 
+///
 /// The above copyright notice and this permission notice shall be included in
 /// all copies or substantial portions of the Software.
-/// 
+///
 /// Notwithstanding the foregoing, you may not use, copy, modify, merge, publish,
 /// distribute, sublicense, create a derivative work, and/or sell copies of the
 /// Software in any work that is designed, intended, or marketed for pedagogical or
@@ -17,7 +17,7 @@
 /// or information technology.  Permission for such use, copying, modification,
 /// merger, publication, distribution, sublicensing, creation of derivative works,
 /// or sale is expressly withheld.
-/// 
+///
 /// This project and source code may use libraries or frameworks that are
 /// released under various Open-Source licenses. Use of those libraries and
 /// frameworks are governed by their own individual licenses.
@@ -32,40 +32,23 @@
 
 import SwiftUI
 
-struct HeaderView: View {
-    @Binding var selectedTab: Int
-    let titleText: String
+/// salex 自定义给 Form section header 用
+struct SectionHeaderView: View {
+    
+    let day: ExerciseDay
     
     var body: some View {
-        VStack {
-            Text(titleText)
-                .font(.largeTitle)
-                .fontWeight(.black)
-                .foregroundColor(.white)
-            HStack {
-                ForEach(Exercise.exercises.indices, id: \.self) { index in
-                    ZStack {
-                        Circle()
-                            .frame(width: 32, height: 32)
-                            .foregroundColor(.white)
-                            .opacity(index == selectedTab ? 0.5 : 0.0)
-                        Circle()
-                            .frame(width: 16, height: 16)
-                            .foregroundColor(.white)
-                    }
-                    .onTapGesture {
-                        selectedTab = index
-                    }
-                }
-            }
-            .font(.title2)
+        HStack {
+            Image(systemName: "cart")
+            Text(day.date.formatted(as: "MMM d"))
+                .font(.headline)
         }
+        .background(.red)
+        .padding(.leading, 0)
+        .frame(maxWidth: .infinity, alignment: .leading)
     }
 }
 
-struct HeaderView_Previews: PreviewProvider {
-    static var previews: some View {
-        HeaderView(selectedTab: .constant(0), titleText: "Squat")
-            .previewLayout(.sizeThatFits)
-    }
+#Preview {
+    SectionHeaderView(day: ExerciseDay(date: Date()))
 }

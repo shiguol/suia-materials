@@ -33,34 +33,34 @@
 import SwiftUI
 
 struct AddThingView: View {
-  @Environment(\.dismiss) var dismiss
-  @State private var thing = ""
-  @FocusState private var thingIsFocused: Bool
-  @ObservedObject var someThings: ThingStore
-
-  var body: some View {
-    VStack {
-      TextField("Thing I Learned", text: $thing)  // 1
-        .textFieldStyle(.roundedBorder)  // 2
-        .padding()  // 3
-        // .autocapitalization(.allCharacters)
-        .disableAutocorrection(true)
-        .focused($thingIsFocused)
-        .onAppear { thingIsFocused = true }
-      Button("Done") {
-        if !thing.isEmpty {
-          someThings.things.append(thing)
+    @Environment(\.dismiss) var dismiss
+    @State private var thing = ""
+    @FocusState private var thingIsFocused: Bool
+    @ObservedObject var someThings: ThingStore
+    
+    var body: some View {
+        VStack {
+            TextField("Thing I Learned", text: $thing)  // 1
+                .textFieldStyle(.roundedBorder)  // 2
+                .padding()  // 3
+            // .autocapitalization(.allCharacters)
+                .disableAutocorrection(true)
+                .focused($thingIsFocused)
+                .onAppear { thingIsFocused = true }
+            Button("Done") {
+                if !thing.isEmpty {
+                    someThings.things.append(thing)
+                }
+                dismiss()
+            }
+            Spacer()
         }
-        dismiss()
-      }
-      Spacer()
+        .environment(\.textCase, nil)
     }
-    .environment(\.textCase, nil)
-  }
 }
 
 struct AddThingView_Previews: PreviewProvider {
-  static var previews: some View {
-    AddThingView(someThings: ThingStore())
-  }
+    static var previews: some View {
+        AddThingView(someThings: ThingStore())
+    }
 }

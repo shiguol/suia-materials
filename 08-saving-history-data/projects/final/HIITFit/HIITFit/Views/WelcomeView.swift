@@ -1,15 +1,15 @@
 /// Copyright (c) 2022 Kodeco LLC
-/// 
+///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy
 /// of this software and associated documentation files (the "Software"), to deal
 /// in the Software without restriction, including without limitation the rights
 /// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 /// copies of the Software, and to permit persons to whom the Software is
 /// furnished to do so, subject to the following conditions:
-/// 
+///
 /// The above copyright notice and this permission notice shall be included in
 /// all copies or substantial portions of the Software.
-/// 
+///
 /// Notwithstanding the foregoing, you may not use, copy, modify, merge, publish,
 /// distribute, sublicense, create a derivative work, and/or sell copies of the
 /// Software in any work that is designed, intended, or marketed for pedagogical or
@@ -17,7 +17,7 @@
 /// or information technology.  Permission for such use, copying, modification,
 /// merger, publication, distribution, sublicensing, creation of derivative works,
 /// or sale is expressly withheld.
-/// 
+///
 /// This project and source code may use libraries or frameworks that are
 /// released under various Open-Source licenses. Use of those libraries and
 /// frameworks are governed by their own individual licenses.
@@ -33,52 +33,52 @@
 import SwiftUI
 
 struct WelcomeView: View {
-  @State private var showHistory = false
-  @Binding var selectedTab: Int
-
-  var body: some View {
-    ZStack {
-      VStack {
-        HeaderView(selectedTab: $selectedTab, titleText: "Welcome")
-        Spacer()
-        Button("History") {
-          showHistory.toggle()
+    @State private var showHistory = false
+    @Binding var selectedTab: Int
+    
+    var body: some View {
+        ZStack {
+            VStack {
+                HeaderView(selectedTab: $selectedTab, titleText: "Welcome")
+                Spacer()
+                Button("History") {
+                    showHistory.toggle()
+                }
+                .sheet(isPresented: $showHistory) {
+                    HistoryView(showHistory: $showHistory)
+                }
+                .padding(.bottom)
+            }
+            
+            VStack {
+                HStack(alignment: .bottom) {
+                    VStack(alignment: .leading) {
+                        Text("Get fit")
+                            .font(.largeTitle)
+                        Text("with high intensity interval training")
+                            .font(.headline)
+                    }
+                    Image("step-up")
+                        .resizedToFill(width: 240, height: 240)
+                        .clipShape(Circle())
+                }
+                // swiftlint:disable:next multiple_closures_with_trailing_closure
+                Button(action: { selectedTab = 0 }) {
+                    Text("Get Started")
+                    Image(systemName: "arrow.right.circle")
+                }
+                .font(.title2)
+                .padding()
+                .background(
+                    RoundedRectangle(cornerRadius: 20)
+                        .stroke(Color.gray, lineWidth: 2))
+            }
         }
-        .sheet(isPresented: $showHistory) {
-          HistoryView(showHistory: $showHistory)
-        }
-        .padding(.bottom)
-      }
-
-      VStack {
-        HStack(alignment: .bottom) {
-          VStack(alignment: .leading) {
-            Text("Get fit")
-              .font(.largeTitle)
-            Text("with high intensity interval training")
-              .font(.headline)
-          }
-          Image("step-up")
-            .resizedToFill(width: 240, height: 240)
-            .clipShape(Circle())
-        }
-        // swiftlint:disable:next multiple_closures_with_trailing_closure
-        Button(action: { selectedTab = 0 }) {
-          Text("Get Started")
-          Image(systemName: "arrow.right.circle")
-        }
-        .font(.title2)
-        .padding()
-        .background(
-          RoundedRectangle(cornerRadius: 20)
-          .stroke(Color.gray, lineWidth: 2))
-      }
     }
-  }
 }
 
 struct WelcomeView_Previews: PreviewProvider {
-  static var previews: some View {
-    WelcomeView(selectedTab: .constant(9))
-  }
+    static var previews: some View {
+        WelcomeView(selectedTab: .constant(9))
+    }
 }

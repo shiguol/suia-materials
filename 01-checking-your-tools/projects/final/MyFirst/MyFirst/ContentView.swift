@@ -33,21 +33,28 @@
 import SwiftUI
 
 struct ContentView: View {
+    // salex View 是协议
     var body: some View {
+        // salex VStack 是布局，还有 HStack、列表、ZStack 绝对布局等
         VStack {
+            // salex Image() 是个 UI 元素，.imageScale() 就是所谓的 modifiers(修饰符) 方法
             Image(systemName: "globe")
                 .imageScale(.large)
                 .foregroundColor(.accentColor)
+            // salex 可以组合不同的 view
             ByeView()
         }
+        // .padding()：这是一个修饰符函数，它用于为垂直堆栈的内容添加内边距。
+        // 这意味着在堆栈中的子视图周围将添加指定量的空白空间。
+        // 可以通过在 .padding() 后添加参数来指定边距的大小，例如：.padding(20)
         .padding()
     }
+    // 以上大括号表示一个构造器，这种写法在 C++ 中也有类似的，例如：std::string value { "hi" };
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
       Group {
-        ContentView()
         ContentView()
           .previewDevice(PreviewDevice(rawValue: "iPhone 8"))
       }

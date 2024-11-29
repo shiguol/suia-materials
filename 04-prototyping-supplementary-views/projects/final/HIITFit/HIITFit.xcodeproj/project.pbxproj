@@ -26,6 +26,7 @@
 		CDBD94A728DBFA45000FE7AA /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDBD94A628DBFA45000FE7AA /* HistoryView.swift */; };
 		CDBD94A928DBFD58000FE7AA /* HistoryStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDBD94A828DBFD58000FE7AA /* HistoryStore.swift */; };
 		CDBD94AC28DBFFCC000FE7AA /* HistoryStoreDevData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDBD94AB28DBFFCC000FE7AA /* HistoryStoreDevData.swift */; };
+		FAD6F93A2C6F6D0F00A41000 /* SectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD6F9392C6F6D0F00A41000 /* SectionHeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		CDBD94A628DBFA45000FE7AA /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
 		CDBD94A828DBFD58000FE7AA /* HistoryStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryStore.swift; sourceTree = "<group>"; };
 		CDBD94AB28DBFFCC000FE7AA /* HistoryStoreDevData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryStoreDevData.swift; sourceTree = "<group>"; };
+		FAD6F9392C6F6D0F00A41000 /* SectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +127,7 @@
 				CDBD94A428DAEF86000FE7AA /* VideoPlayerView.swift */,
 				CDBD94A228DAB99F000FE7AA /* RatingView.swift */,
 				CDBD949C28D97F09000FE7AA /* HeaderView.swift */,
+				FAD6F9392C6F6D0F00A41000 /* SectionHeaderView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -246,6 +249,7 @@
 				CD30C93F25147A8C0049DB93 /* DateExtension.swift in Sources */,
 				CD30C924251474DC0049DB93 /* HIITFitApp.swift in Sources */,
 				CD30C94025147A8C0049DB93 /* ImageExtension.swift in Sources */,
+				FAD6F93A2C6F6D0F00A41000 /* SectionHeaderView.swift in Sources */,
 				CDBD949D28D97F09000FE7AA /* HeaderView.swift in Sources */,
 				CDBD94A528DAEF86000FE7AA /* VideoPlayerView.swift in Sources */,
 			);
